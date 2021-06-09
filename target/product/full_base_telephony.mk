@@ -21,7 +21,11 @@
 
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
+
+ifeq ($(CUSTOM_BUILD),)
+PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.android.dataroaming=true
+endif
 
 PRODUCT_COPY_FILES := \
     device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml \
